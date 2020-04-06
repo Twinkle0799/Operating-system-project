@@ -10,8 +10,8 @@ Want to compile manually?
 
     Compile by firing the following command in the respective TASK directories
 
-$ gcc main.c -lphread
+ $ gcc main.c 
 
     Run the executable object file by issuing the following command
 
-$ ./a.out
+ $ ./a.out
