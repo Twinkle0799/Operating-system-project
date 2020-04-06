@@ -88,3 +88,8 @@ void *student1()
 	printf("\n\tStudent 1 has Completed the assignment.\n");	
 	pthread_mutex_unlock(&lck);
 }
+printf("************************Program Ends***************************\n");
+printf("************************Made By:Twinkle Gupta*******************\n");
+printf("************************Roll no:07*****************************\n");
+printf("************************Section:K18GT**************************\n");
+}
