@@ -14,18 +14,21 @@ int r1,r2;
 
 int main()
 {	
-	printf("\t\t\t---Welcome---\n");
+	printf("\t\t\t---Welcome to OS Assignment---\n");
 	pthread_mutex_init(&lck,NULL);
 	
 	student[1][1]=1;
 	student[2][2]=2;student[3][3]=1;
 	pthread_t t_thread;
 	pthread_t s_thread;
-	printf("Resources Menu: \n\t\tPress '1' for pen\n\t\tPress '2' for paper \n\t\tPress '3' for question_paper \n"); 
+	printf("Choose Any two resources : \n\t\tPress '1' for PEN\n\t\tPress '2' for PAPER \n\t\tPress '3' for Question_Paper \n"); 
 	
 	while(1)
 	{
-		if(student[1][4]==1 && student[2][4]==1 && student[3][4]==1){break;}
+		if(student[1][4]==1 && student[2][4]==1 && student[3][4]==1)
+		{
+		break;
+		}
 		pthread_create(&t_thread, NULL, teacher, NULL);
 	    pthread_join(t_thread,NULL);
 	    
@@ -46,7 +49,7 @@ int main()
 		}
 		else
 		{
-			printf("\n\tError (007): try again.. with different choices.\n");
+			printf("\n\t WRONG CHOICE SELECTED : try again.. with different choices.\n");
 		}
 	}
 	printf("\n\t----Done---\n");
@@ -57,9 +60,9 @@ int main()
 void *teacher()
 {
 	pthread_mutex_lock(&lck);
-	printf("\nFirst Resource on shared tabel:-\t");
+	printf("\nFirst Resource on the tabel:-\t");
 	scanf("%d",&ch1);
-	printf("Second Resource on shared tabel:-\t");
+	printf("Second Resource on the tabel:-\t");
 	scanf("%d",&ch2);
 	pthread_mutex_unlock(&lck);
 }
@@ -67,29 +70,24 @@ void *teacher()
 void *student2()
 {	
 	pthread_mutex_lock(&lck);
-	printf("\nChoices Made = 'pen', 'question_paper'\n");
+	printf("\nChoices Made = 'PEN' and 'Question_Paper'\n");
 	student[2][4]=1;
-	printf("\n\tStudent 2 has Completed the assignment. \n");
+	printf("\n*******Assignment completed by STUDENT 2.******** \n");
 	pthread_mutex_unlock(&lck);
 }
 void *student3()
 {	
 	pthread_mutex_lock(&lck);
-	printf("\nChoices Made = 'pen', 'paper'\n");
+	printf("\nChoices Made = 'PEN' AND 'PAPER'\n");
 	student[3][4]=1;
-	printf("\n\tStudent 3 has Completed the assignment.\n");
+	printf("\n*******Assignment completed by STUDENT 3.******** \n");
 	pthread_mutex_unlock(&lck);
 }
 void *student1()
 {	
 	pthread_mutex_lock(&lck);
-	printf("\nChoices Made = 'paper', 'question_paper'\n");
+	printf("\nChoices Made = 'PAPER' AND 'Question_Paper'\n");
 	student[1][4]=1;
-	printf("\n\tStudent 1 has Completed the assignment.\n");	
+	printf("\n*******Assignment completed by STUDENT 1.********* \n");	
 	pthread_mutex_unlock(&lck);
-}
-printf("************************Program Ends***************************\n");
-printf("************************Made By:Twinkle Gupta*******************\n");
-printf("************************Roll no:07*****************************\n");
-printf("************************Section:K18GT**************************\n");
 }
